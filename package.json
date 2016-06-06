@@ -1,0 +1,17 @@
+{
+  "name": "branche_zoo",
+  "version": "1.0.0",
+  "description": "Serveur de la branche connecté ",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "twit": "^2.2.4"
+  }
+}
