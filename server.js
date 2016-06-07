@@ -30,17 +30,18 @@ var emojiArray = ["🌲", "🌳","🌴","🌺","🍉","🍐","🍏","😃","👍
 
 var replaceEmoji = function(sentenceTw){
     var mapObj = {
-     A:emojiArray[0],
-     Z:emojiArray[1],
-     E:emojiArray[2],
-     R:emojiArray[3],
-     T:emojiArray[4],
-     Y:emojiArray[5],
-     U:emojiArray[6],
-     I:emojiArray[7],
-     O:emojiArray[8]
+     A : emojiArray[0],
+     Z : emojiArray[1],
+     E : emojiArray[2],
+     R : emojiArray[3],
+     T : emojiArray[4],
+     Y : emojiArray[5],
+     U : emojiArray[6],
+     I : emojiArray[7],
+     O : emojiArray[8]
     };
-  var re = new RegExp(Object.keys(mapObj).join("|"),"gi");
+  var re = new RegExp(Object.keys(mapObj).join("|"),"g");
+  console.log(re);
   sentenceTw = sentenceTw.replace(re, function(matched){
     return mapObj[matched];
   });
@@ -51,11 +52,12 @@ apiRoutes.post('/tweet', function(req,res){
   console.log("Got a request");
     var myTweet = replaceEmoji(req.body.tweet);
     var myToken = req.body.token;
+    console.log(req.body.tweet);
     console.log(myTweet);
     if( myTweet != "" && myToken == secret.token){
-      T.post('statuses/update', { status: myTweet }, function(err, data, response) {
+      /*T.post('statuses/update', { status: myTweet }, function(err, data, response) {
         console.log(data);
-      });
+      });*/
       return res.status(200).send({
           success: true,
           message: 'Tweet Sent !'
