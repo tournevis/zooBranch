@@ -51,6 +51,7 @@ apiRoutes.post('/tweet', function(req,res){
   console.log("Got a request");
     var myTweet = replaceEmoji(req.body.tweet);
     var myToken = req.body.token;
+    log(myTweet)
     if( myTweet != "" && myToken == secret.token){
       T.post('statuses/update', { status: myTweet }, function(err, data, response) {
         console.log(data);
