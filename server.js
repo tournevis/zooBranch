@@ -10,7 +10,7 @@ var T = new Twit({
 , access_token:         secret.twitCred[2]
 , access_token_secret:  secret.twitCred[3]
 });
-var port = process.env.PORT || 8080; // used to create, sign, and verify tokens
+var port = process.env.PORT || 8000; // used to create, sign, and verify tokens
 
 app.listen(port);
 console.log('Magic happens at http://localhost:' + port);
