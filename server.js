@@ -10,7 +10,7 @@ var T = new Twit({
 , access_token:         secret.twitCred[2]
 , access_token_secret:  secret.twitCred[3]
 });
-var port = process.env.PORT || 8000; // used to create, sign, and verify tokens
+var port = process.env.PORT || 80; // used to create, sign, and verify tokens
 
 app.listen(port);
 console.log('Magic happens at http://localhost:' + port);
@@ -53,7 +53,7 @@ apiRoutes.post('/tweet', function(req,res){
     var myTweet = replaceEmoji(req.body.tweet);
     var myToken = req.body.token;
     //console.log(req.body.tweet);
-    //console.log(myTweet);
+    console.log(myTweet);
     if( myTweet != "" && myToken == secret.token){
       //T.post('statuses/update', { status: myTweet }, function(err, data, response) {
        // console.log(data);
