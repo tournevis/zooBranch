@@ -55,10 +55,10 @@ apiRoutes.post('/tweet', function(req,res){
     //console.log(req.body.tweet);
     //console.log(myTweet);
     if( myTweet != "" && myToken == secret.token){
-      T.post('statuses/update', { status: myTweet }, function(err, data, response) {
-      //  console.log(data);
+      //T.post('statuses/update', { status: myTweet }, function(err, data, response) {
+       // console.log(data);
         console.log("tweet : " + myTweet );
-      });
+    //  });
       return res.status(200).send({
           success: true,
           message: 'Tweet Sent !'
@@ -70,6 +70,7 @@ apiRoutes.post('/tweet', function(req,res){
       });
     }
 });
+
 apiRoutes.post('/move', function(req,res){
   console.log("Got a Move request");
     var myDirection = req.body.direction;

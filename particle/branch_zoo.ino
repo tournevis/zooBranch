@@ -16,15 +16,19 @@ http_header_t headers[] = {
 http_request_t request;
 http_response_t response;
 
-char myCharArray[59] ;
+char myCharArray[37] = {a, Z, z, e, r, t, A, y, u, E, i, o, p, R, q, s, T, d, f, Y,  , h, U, j, k, l, I, m, e, w, O, x, c, v, P, b, n};
 long timeSinceTweet, timeSinceData;
 int lastDistSensor;
+String key = "azerty";
+String url = "http://localhost:8080/api/tweet";
 String myTweet ;
+int freqTweet = 1000;
+bool starting;
 
+int myIntArray[10] = { 0, 0, 0, 0, 0};
 int freqTweet = 500;
 
 void setup() {
-
   pinMode(ledPin, OUTPUT);
   pinMode(distPin, INPUT);
   Serial.begin(9600);
@@ -33,30 +37,9 @@ void setup() {
   timeSinceData = 0;
   lastDistSensor = 0;
   myTweet = "";
-
-    request.hostname = "SETYOURTOKEN";
+    request.hostname = url;
     request.port = 8080;
     request.path = "/api/tweet";
-
-  for (int i = 0 ; i < 59 ; i++) {
-    int j = i;
-    j += 42;
-    if (j < 46) {
-      myCharArray[i] = j ;
-    }
-    j += 19;
-    if ( j>= 65  && j < 91) {
-      myCharArray[i] = j ;
-    }
-    j += 6;
-    if ( j>= 97  && j < 122) {
-      myCharArray[i] = j ;
-    }
-    if(i = 58){
-      myCharArray[i] = 20;
-      }
-    Serial.println(myCharArray[i]);
-  }
 }
 
 void loop() {
@@ -68,9 +51,7 @@ void loop() {
     Serial.print("Dist : " );
     Serial.println(distSensor);
     timeSinceData = millis();
-    delay(10);
   }
-
   // Si il n'y a pas eu de tweet depuis 2 min et que la chaine de caractères est plus grande de 100 char, et si il n'est pas en train de mesurer
   if ((millis() - timeSinceTweet) > 120000 && myTweet.length() >= 100 && (millis() - timeSinceData) > 4 * freqTweet ) {
     tweetPing(myTweet);
@@ -90,12 +71,17 @@ void loop() {
 
 }
 void tweetPing(String Tweet) {
-    request.body = "{\"tweet\":" + Tweet + ",\"token\":\"azerty\" }";
+    request.body = "{\"tweet\":" +  String( Tweet )+ ",\"token\":" + String( token) +"}";
     delay(100);
     Serial.println("Posting");
     digitalWrite(ledPin, HIGH);
     http.post(request, response, headers);
-    Serial.println(Tweet) ;
+    if( response ){
+      Serial.println(Tweet) ;
+    }else{
+      Serial.println("Error :") ;
+      Serial.println(response)
+    }
      // Reset des pararmètres
     timeSinceTweet = millis();
     myTweet = "";
