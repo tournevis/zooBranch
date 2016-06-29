@@ -58,6 +58,7 @@ apiRoutes.post('/tweet', function(req,res){
     console.log(myTweet);
     if( myTweet != "" && myToken == secret.token){
       //T.post('statuses/update', { status: myTweet }, function(err, data, response) {
+       // console.log(data);
         console.log("tweet : " + myTweet );
     //  });
       return res.status(200).send({
