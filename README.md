@@ -117,7 +117,8 @@ Don't forget to set the same secret, in the secret.json and in the curl request 
   - Coté Serveur, pensez à mettre les crédits Twitter de prod. Et décommenté le post de twit à la ligne 60
 
   - Couper du bois :)
-  - Une moulte bonne alternance à toi ! 
+  
+  - Une moulte bonne alternance à toi !
 
 ## Questions ?
  [Ping Me](https://twitter.com/Arth_Rob)
