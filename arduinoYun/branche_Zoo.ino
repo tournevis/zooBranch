@@ -8,7 +8,7 @@ char myCharArray[37] = {'a', 'Z', 'z', 'e', 'r', 't', 'A', 'y', 'u', 'E', 'i', '
 long timeSinceTweet, timeSinceData;
 int lastDistSensor;
 String key = "token=azerty";
-String url = "http://5.196.7.169:8000/api/tweet";
+String url = "http://localhost:8000/api/tweet";
 String myTweet ;
 int freqTweet = 1000;
 bool starting;
