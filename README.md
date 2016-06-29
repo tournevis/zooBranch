@@ -55,9 +55,9 @@ Don't forget to set the same secret, in the secret.json and in the curl request 
   Le développement sur les cartes de particle s'effectue sur : https://build.particle.io/build
   On peut retrouver un bon getting started sur leur site :
 
-    [Electron 3G](https://docs.particle.io/guide/getting-started/intro/electron/)
+  [Electron 3G](https://docs.particle.io/guide/getting-started/intro/electron/)
 
-    [Photon](https://docs.particle.io/guide/getting-started/intro/photon/)
+  [Photon](https://docs.particle.io/guide/getting-started/intro/photon/)
   Auparavant on va installer l'outils de commande Particle à l'aide npm :
 
   ```bash
@@ -114,7 +114,10 @@ Don't forget to set the same secret, in the secret.json and in the curl request 
   - Implémenter les actions voulu lors des déplacement de l'oiseau ( la détection est faite, mais pour l'instant rien n'a été décidé avec)
   - Uploader le code sur la carte avec les bon liens serveur
   - Ajuster les valeurs en fonction du nouveau capteur
+  - Coté Serveur, pensez à mettre les crédits Twitter de prod. Et décommenté le post de twit à la ligne 60
+
   - Couper du bois :)
+  - Une moulte bonne alternance à toi ! 
 
 ## Questions ?
  [Ping Me](https://twitter.com/Arth_Rob)

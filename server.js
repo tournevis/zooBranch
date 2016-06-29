@@ -47,7 +47,9 @@ var replaceEmoji = function(sentenceTw){
   });
   return sentenceTw;
 }
+/**** ROUTES ****/
 
+/**NOTE: Décommenter le post de twit lors de la phase de prod **/
 apiRoutes.post('/tweet', function(req,res){
   console.log("Got a Tweet request");
     var myTweet = replaceEmoji(req.body.tweet);
